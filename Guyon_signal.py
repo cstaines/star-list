@@ -28,9 +28,9 @@ VIc = zeros(num_stars,float) #V - Ic
 G = zeros(num_stars,float) #G magnitude
 M_star = zeros(num_stars,float) #Mass of host star, in solar masses
 a = zeros(num_stars,float) #Semi-major axis of planetary orbit, in AU
-alpha = zeros(num_stars,float) #Signal in arcseconds
+alpha = zeros(num_stars,float) #Signal in microarcseconds
 z = zeros(num_stars,float) #Used to calculate noise
-sigma = zeros(num_stars,float)
+sigma = zeros(num_stars,float) #Noise, in microarcseconds
 SN = zeros(num_stars,float)#Signal to noise ratio
 label = zeros(num_stars,int) #To identify the star
 
