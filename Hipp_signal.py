@@ -36,10 +36,6 @@ SN = zeros(num_stars,float)#Signal to noise ratio
 label = zeros(num_stars,int) #To identify the star
 parallax = zeros(num_stars,float) #Get distance from parallax
 M_star = zeros(num_stars, float) #Mass of host star
- 
-
-#Account for some missing entries in list
-flag = zeros(num_stars,int)
 
 #Initialise the final list of stars
 star_list = []
@@ -101,21 +97,15 @@ for i in range(num_stars):
 
             #print SN[i]
 
-        else:
-            flag[i] = 1
+            #Add the star to the list of the labels, masses, distances,
+            #V magnitudes, signals and signal to noise ratios of each star
 
-    else:
-        flag[i] = 1
+            #Get them to a digestible number of d.p.
+            M_star[i] = int(M_star[i]*1000000)/(1000000.0)
+            d[i] = int(d[i]*1000000)/(1000000.0)
+            V[i] = int(V[i]*100)/100.0
+            star_list.append([label[i], M_star[i], d[i], V[i], alpha[i], SN[i]])
 
-    #Next, create a list of the labels, masses, distances, V magnitudes,
-    #signals and signal to noise ratios of each star
-
-    if flag[i] == 0:
-        #Digestible number of d.p.
-        M_star[i] = int(M_star[i]*1000000)/(1000000.0)
-        d[i] = int(d[i]*1000000)/(1000000.0)
-        V[i] = int(V[i]*100)/100.0
-        star_list.append([label[i], M_star[i], d[i], V[i], alpha[i], SN[i]])
 
 fin.close()
 

@@ -34,9 +34,6 @@ sigma = zeros(num_stars,float) #Noise, in microarcseconds
 SN = zeros(num_stars,float)#Signal to noise ratio
 label = zeros(num_stars,int) #To identify the star
 
-#Account for some missing entries in list
-flag = zeros(num_stars,int)
-
 #Initialise the final list of stars
 star_list = []
 
@@ -60,7 +57,7 @@ for i in range(num_stars):
         VIc[i] = y[15]
         M_star[i] = y[21]
 
-        #Occasionally the mass of a star is listed as -100;
+        #Occasionally the mass of a star is listed as -100 or 0;
         #Treat such stars as having one solar mass
         
         if M_star[i] < 1e-6:
@@ -96,21 +93,14 @@ for i in range(num_stars):
 
             #print SN[i]
 
-        else:
-            flag[i] = 1
+            #Add the star to a list of the labels, masses, distances,
+            #V magnitudes, signals and signal to noise ratios of each star
 
-    else:
-        flag[i] = 1
-
-    #Next, create a list of the labels, masses, distances, V magnitudes,
-    #signals and signal to noise ratios of each star
-
-    if flag[i] == 0:
-        #Digestible number of d.p.
-        M_star[i] = int(M_star[i]*1000000)/(1000000.0)
-        d[i] = int(d[i]*1000000)/(1000000.0)
-        V[i] = int(V[i]*100)/100.0
-        star_list.append([label[i], M_star[i], d[i], V[i], alpha[i], SN[i]])
+            #Digestible number of d.p.
+            M_star[i] = int(M_star[i]*1000000)/(1000000.0)
+            d[i] = int(d[i]*1000000)/(1000000.0)
+            V[i] = int(V[i]*100)/100.0
+            star_list.append([label[i], M_star[i], d[i], V[i], alpha[i], SN[i]])
 
 fin.close()
 
