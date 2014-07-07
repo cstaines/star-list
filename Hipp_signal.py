@@ -10,7 +10,7 @@ from string import *
 from numpy import *
 from random import uniform
 
-fin = open("Hipp_cat_50pc.txt","r")
+fin = open("catalogues/Hipp_cat_50pc.txt","r")
 
 #Get the number of stars
 num_stars = sum(1 for line in fin)
@@ -99,11 +99,6 @@ for i in range(num_stars):
 
             #Add the star to the list of the labels, masses, distances,
             #V magnitudes, signals and signal to noise ratios of each star
-
-            #Get them to a digestible number of d.p.
-            M_star[i] = int(M_star[i]*1000000)/(1000000.0)
-            d[i] = int(d[i]*1000000)/(1000000.0)
-            V[i] = int(V[i]*100)/100.0
             star_list.append([label[i], M_star[i], d[i], V[i], alpha[i], SN[i]])
 
 
@@ -115,14 +110,7 @@ star_list.sort(key=lambda x: x[5], reverse=True)
 #print star_list
 
 #Print the list to file
-
-fout = open("Hipp50_sorted_list.txt","w")
-
-for line in star_list:
-    #print ' '.join(map(str, line))
-    fout.write(' '.join(map(str, line)))
-    fout.write('\n')
-
+fout = open("sorted_lists/Hipp50_sorted_list_period%d.txt" % int(100*P),"w")
+savetxt(fout, star_list, "%d %.2f %.6f %.2f %.10f %.10f", " ", "\n")
 fout.close()
-
     

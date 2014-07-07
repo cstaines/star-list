@@ -8,7 +8,7 @@
 from string import *
 from numpy import *
 
-fin = open("Guyon_cat.txt","r")
+fin = open("catalogues/Guyon_cat.txt", "r")
 
 #Get the number of stars
 num_stars = sum(1 for line in fin)
@@ -95,11 +95,6 @@ for i in range(num_stars):
 
             #Add the star to a list of the labels, masses, distances,
             #V magnitudes, signals and signal to noise ratios of each star
-
-            #Digestible number of d.p.
-            M_star[i] = int(M_star[i]*1000000)/(1000000.0)
-            d[i] = int(d[i]*1000000)/(1000000.0)
-            V[i] = int(V[i]*100)/100.0
             star_list.append([label[i], M_star[i], d[i], V[i], alpha[i], SN[i]])
 
 fin.close()
@@ -111,13 +106,8 @@ star_list.sort(key=lambda x: x[5], reverse=True)
 
 #Print the list to file
 
-fout = open("Guyon_sorted_list.txt","w")
-
-for line in star_list:
-    #print ' '.join(map(str, line))
-    fout.write(' '.join(map(str, line)))
-    fout.write('\n')
-
+fout = open("sorted_lists/Guyon_sorted_list_period%d.txt" % int(100*P), "w")
+savetxt(fout, star_list, "%d %.2f %.6f %.2f %.10f %.10f", " ", "\n")
 fout.close()
 
 
