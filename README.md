@@ -1,23 +1,14 @@
 star-list
 =========
-Guyon_cat.txt = Guyon catalogue
+Folder 'catalogues':  original Guyons, RECONS and Hipparcos stellar catalogues.
 
-RECONS_cat.txt = RECONS catalogue
+Folder 'sorted_lists': signal to noise ratios for each star in each catalogue, listed in descending order of this ratio.
 
-Hipp_cat_50pc.txt = portion of Hipparcos catalogue containing stars at distances less than 50pc
+Folder 'graphs': plots of signal to noise ratios against stellar distance, and cumulative number of stars against signal to noise ratio.
 
-Guyon_signal.py = script to sort the stars in Guyon catalogue in descending order of signal to noise ratio
+'_plots.py' scripts take the sorted lists and make the desired plots in 'graphs'.
 
-RECONS_signal.py = ditto RECONS
-
-Hipp_signal.py = ditto Hipparcos
-
-Guyon_sorted_list.txt = sorted list of stars in Guyon catalogue
-
-RECONS_sorted_list.txt = ditto RECONS
-
-Hipp50_sorted_list.txt = ditto Hipparcos
-
+'_signal.py' scripts compute the signal to noise ratio for each star and then sort the list in this order, saving the result in 'sorted_lists'
 
 The columns in the sorted lists are as follows:
 
