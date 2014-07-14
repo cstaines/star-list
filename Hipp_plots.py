@@ -72,7 +72,7 @@ plt.hist(H5_SNs, len(H5_SNs), color = "green", label = "P = 5", histtype = "step
 
 plt.xlim(0, 500)
 plt.ylim(ymin = 0)
-plt.xticks(range(0, 2000, 500))
+plt.xticks(range(0, 600, 100))
 plt.xlabel("Signal to noise ratio")
 plt.ylabel("Cumulative number of stars")
 
