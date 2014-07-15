@@ -17,6 +17,9 @@ fin_R1 = open("sorted_lists/RECONS_sorted_list_period100.txt", "r")
 [R3_dists, R3_SNs] = np.genfromtxt(fin_R3, usecols = (2, 5), unpack = True)
 [R1_dists, R1_SNs] = np.genfromtxt(fin_R1, usecols = (2, 5), unpack = True)
 
+fin_R5.close()
+fin_R3.close()
+fin_R1.close()
 #Get log to the base 10 of the signal to noise ratios
 R5_SNs = np.log10(R5_SNs)
 R3_SNs = np.log10(R3_SNs)

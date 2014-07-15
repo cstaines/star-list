@@ -19,6 +19,10 @@ fin_G1 = open("sorted_lists/Guyon_sorted_list_period100.txt", "r")
 [G3_dists, G3_SNs] = np.genfromtxt(fin_G3, usecols = (2, 5), unpack = True)
 [G1_dists, G1_SNs] = np.genfromtxt(fin_G1, usecols = (2, 5), unpack = True)
 
+fin_G5.close()
+fin_G3.close()
+fin_G1.close()
+
 #Get log to the base 10 of the signal to noise ratios
 G5_SNs = np.log10(G5_SNs)
 G3_SNs = np.log10(G3_SNs)

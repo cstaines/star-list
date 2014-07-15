@@ -19,6 +19,10 @@ fin_H1 = open("sorted_lists/Hipp50_sorted_list_period100.txt", "r")
 [H3_dists, H3_SNs] = np.genfromtxt(fin_H3, usecols = (2, 5), unpack = True)
 [H1_dists, H1_SNs] = np.genfromtxt(fin_H1, usecols = (2, 5), unpack = True)
 
+fin_H5.close()
+fin_H3.close()
+fin_H1.close()
+
 #Get log to the base 10 of the signal to noise ratios
 H5_SNs = np.log10(H5_SNs)
 H3_SNs = np.log10(H3_SNs)
