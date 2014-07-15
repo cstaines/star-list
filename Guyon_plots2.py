@@ -2,6 +2,8 @@
 #for each star as a function of distance.
 #Then, plot the cumulative number of
 #stars below the signal-to-noise ratio.
+#Since there is a large range of S/N, plot
+#log to the base 10 of S/N in each case
 
 import numpy as np
 import pylab as plt
@@ -17,11 +19,12 @@ fin_G1 = open("sorted_lists/Guyon_sorted_list_period100.txt", "r")
 [G3_dists, G3_SNs] = np.genfromtxt(fin_G3, usecols = (2, 5), unpack = True)
 [G1_dists, G1_SNs] = np.genfromtxt(fin_G1, usecols = (2, 5), unpack = True)
 
+#Get log to the base 10 of the signal to noise ratios
 G5_SNs = np.log10(G5_SNs)
 G3_SNs = np.log10(G3_SNs)
 G1_SNs = np.log10(G1_SNs)
 
-#Plot them on the same axes in a scatter plot
+#Plot the distances and log(S/N) on the same axes in a scatter plot
 plt.figure(1)
 plt.suptitle("""Guyon catalogue: log (base 10) of signal to noise ratio against stellar distance
 for planetary orbits of period P years""")
@@ -42,27 +45,14 @@ plt.savefig("graphs/Guyon_SN_vs_d_plots.pdf")
 
 
 #Next, get the number of stars with signal-to-noise ratio lower
-#than some given ratio, and plot as a function of the given ratio.
+#than some given ratio, and plot as a function of the log of the given ratio.
 plt.figure(2)
 plt.suptitle("""Guyon catalogue: Cumulative number of stars against log (base 10) signal to noise ratio
 for planetary orbits of period P years""")
 
-#Define an array containing the cumulative number of stars at each S/N ratio
-cu1 = np.zeros(len(G1_SNs))
-cu3 = np.zeros(len(G3_SNs))
-cu5 = np.zeros(len(G5_SNs))
-for i in range(len(G1_SNs)):
-    cu1[i] = i
-
-for i in range(len(G3_SNs)):
-    cu3[i] = i
-
-for i in range(len(G5_SNs)):
-    cu5[i] = i
-
-plt.plot(cu1, sorted(G1_SNs), color = "red", label = "P = 1", linestyle = '-')
-plt.plot(cu3, sorted(G3_SNs), color = "blue", label = "P = 3", linestyle = '--')
-plt.plot(cu5, sorted(G5_SNs), color = "green", label = "P = 5", linestyle = ':')
+plt.plot(range(len(G1_SNs)), sorted(G1_SNs), color = "red", label = "P = 1", linestyle = '-')
+plt.plot(range(len(G3_SNs)), sorted(G3_SNs), color = "blue", label = "P = 3", linestyle = '--')
+plt.plot(range(len(G5_SNs)), sorted(G5_SNs), color = "green", label = "P = 5", linestyle = ':')
 
 
 plt.xlim(xmin = 0)
