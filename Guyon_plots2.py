@@ -32,9 +32,9 @@ G1_SNs = np.log10(G1_SNs)
 plt.figure(1)
 plt.suptitle("""Guyon catalogue: log (base 10) of signal to noise ratio against stellar distance
 for planetary orbits of period P years""")
-plt.scatter(G1_dists, G1_SNs, s = 3, label = "P = 1", color = "red", marker = "|")
+plt.scatter(G1_dists, G1_SNs, s = 3, label = "P = 1", color = "red", marker = "s")
 plt.scatter(G3_dists, G3_SNs, s = 3, label = "P = 3", color = "blue", marker = "o")
-plt.scatter(G5_dists, G5_SNs, s = 3, label = "P = 5", color = "green", marker = "_") 
+plt.scatter(G5_dists, G5_SNs, s = 3, label = "P = 5", color = "green", marker = ">") 
 
 
 plt.xlim(0, 30)

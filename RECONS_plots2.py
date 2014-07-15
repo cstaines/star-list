@@ -29,7 +29,7 @@ R1_SNs = np.log10(R1_SNs)
 plt.figure(1)
 plt.suptitle("""RECONS catalogue: log (base 10) of signal to noise ratio against stellar distance
 for planetary orbits of period P years""")
-plt.scatter(R1_dists, R1_SNs, s = 5, label = "P = 1", color = "red", marker = "^")
+plt.scatter(R1_dists, R1_SNs, s = 5, label = "P = 1", color = "red", marker = "s")
 plt.scatter(R3_dists, R3_SNs, s = 5, label = "P = 3", color = "blue", marker = "o")
 plt.scatter(R5_dists, R5_SNs, s = 5, label = "P = 5", color = "green", marker = "<") 
 

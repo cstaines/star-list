@@ -32,9 +32,9 @@ H1_SNs = np.log10(H1_SNs)
 plt.figure(1)
 plt.suptitle("""Hipparcos catalogue: log (base 10) of signal to noise ratio against stellar distance
 for planetary orbits of period P years""")
-plt.scatter(H1_dists, H1_SNs, s = 3, label = "P = 1", color = "red", marker = "|")
+plt.scatter(H1_dists, H1_SNs, s = 3, label = "P = 1", color = "red", marker = "s")
 plt.scatter(H3_dists, H3_SNs, s = 3, label = "P = 3", color = "blue", marker = "o")
-plt.scatter(H5_dists, H5_SNs, s = 3, label = "P = 5", color = "green", marker = "_")
+plt.scatter(H5_dists, H5_SNs, s = 3, label = "P = 5", color = "green", marker = "<")
 
 plt.xlim(0, 50)
 plt.ylim(0, 2.5)
