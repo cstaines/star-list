@@ -54,9 +54,9 @@ plt.figure(2)
 plt.suptitle("""Guyon catalogue: Cumulative number of stars against log (base 10) signal to noise ratio
 for planetary orbits of period P years""")
 
-plt.plot(range(len(G1_SNs)), sorted(G1_SNs), color = "red", label = "P = 1", linestyle = '-')
-plt.plot(range(len(G3_SNs)), sorted(G3_SNs), color = "blue", label = "P = 3", linestyle = '--')
-plt.plot(range(len(G5_SNs)), sorted(G5_SNs), color = "green", label = "P = 5", linestyle = ':')
+plt.plot(range(len(G1_SNs)), G1_SNs, color = "red", label = "P = 1", linestyle = '-')
+plt.plot(range(len(G3_SNs)), G3_SNs, color = "blue", label = "P = 3", linestyle = '--')
+plt.plot(range(len(G5_SNs)), G5_SNs, color = "green", label = "P = 5", linestyle = ':')
 
 
 plt.xlim(xmin = 0)
@@ -64,6 +64,6 @@ plt.ylim(ymin = 0)
 plt.ylabel("log signal to noise ratio")
 plt.xlabel("Cumulative number of stars")
 
-plt.legend(loc = 'lower right')
+plt.legend(loc = 'lower left')
 
 plt.savefig("graphs/Guyon_cumul_vs_SN_plots.pdf")

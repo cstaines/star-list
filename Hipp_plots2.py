@@ -53,9 +53,9 @@ plt.suptitle("""Hipparcos catalogue: Cumulative number of stars against log (bas
 for planetary orbits of period P years""")
 
 
-plt.plot(range(len(H1_SNs)), sorted(H1_SNs), color = "red", label = "P = 1", linestyle = '-')
-plt.plot(range(len(H3_SNs)), sorted(H3_SNs), color = "blue", label = "P = 3", linestyle = '--')
-plt.plot(range(len(H5_SNs)), sorted(H5_SNs), color = "green", label = "P = 5", linestyle = ':')
+plt.plot(range(len(H1_SNs)), H1_SNs, color = "red", label = "P = 1", linestyle = '-')
+plt.plot(range(len(H3_SNs)), H3_SNs, color = "blue", label = "P = 3", linestyle = '--')
+plt.plot(range(len(H5_SNs)), H5_SNs, color = "green", label = "P = 5", linestyle = ':')
 
 
 plt.xlim(xmin = 0)
@@ -64,7 +64,7 @@ plt.yticks([0, 0.5, 1, 1.5, 2, 2.5])
 plt.ylabel("log signal to noise ratio")
 plt.xlabel("Cumulative number of stars")
 
-plt.legend(loc = 'lower right')
+plt.legend(loc = 'lower left')
 
 plt.savefig("graphs/Hipp50_cumul_vs_SN_plots.pdf")
 
