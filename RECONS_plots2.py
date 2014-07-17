@@ -51,14 +51,14 @@ plt.figure(2)
 plt.suptitle("""RECONS catalogue: Cumulative number of stars against log (base 10) signal to noise ratio
 for planetary orbits of period P years""")
 
-plt.plot(range(len(R1_SNs)), R1_SNs, color = "red", label = "P = 1", linestyle = '-')
-plt.plot(range(len(R3_SNs)), R3_SNs, color = "blue", label = "P = 3", linestyle = '--')
-plt.plot(range(len(R5_SNs)), R5_SNs, color = "green", label = "P = 5", linestyle = ':')
-plt.xlim(xmin = 0)
+plt.plot(R1_SNs, range(len(R1_SNs)), color = "red", label = "P = 1", linestyle = '-')
+plt.plot(R3_SNs, range(len(R3_SNs)), color = "blue", label = "P = 3", linestyle = '--')
+plt.plot(R5_SNs, range(len(R5_SNs)), color = "green", label = "P = 5", linestyle = ':')
+plt.xlim(3.5, 0)
 plt.ylim(ymin = 0)
-plt.ylabel("log signal to noise ratio")
-plt.xlabel("Cumulative number of stars")
+plt.xlabel("log signal to noise ratio")
+plt.ylabel("Cumulative number of stars")
 
-plt.legend(loc = 'lower left')
+plt.legend(loc = 'lower right')
 
 plt.savefig("graphs/RECONS_cumul_vs_SN_plots.pdf")
